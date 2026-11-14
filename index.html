@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  HOW TO ADD PICTURES
+  1. In this repo, create a folder called "images".
+  2. Upload your pictures there with EXACTLY these names (or change the src below):
+       images/game.jpg      screenshot or banner of the game (landscape, ~1200x675)
+       images/person1.jpg   photo or avatar of you (square, ~400x400)
+       images/person2.jpg   photo or avatar of your friend (square, ~400x400)
+  3. Keep each file under ~300 KB. Until a file exists, a placeholder is shown.
+-->
+<title>SaSGames – indie 3D mobile games</title>
+<meta name="description" content="SaSGames is a two-person indie studio making 3D mobile games for Android.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='15' y='15' width='70' height='70' rx='10' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12143a; --bg2:#1b1e52; --ink:#f3f4ff; --mute:#aeb2e0;
+  --sun:#ffd23f; --sun-d:#e0a800; --teal:#3ddbd0; --line:rgba(130,136,255,.35);
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 var(--body)}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+header{position:sticky;top:0;z-index:5;background:rgba(18,20,58,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{font:800 1.2rem var(--head);color:var(--ink);text-decoration:none}
+nav a{color:var(--mute);text-decoration:none;margin-left:18px;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+
+.btn{display:inline-block;background:var(--sun);color:#1a1630;font:800 1.05rem var(--head);padding:14px 26px;border-radius:12px;text-decoration:none;box-shadow:0 5px 0 var(--sun-d);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--sun-d)}
+.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--sun-d)}
+.btn.alt{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--line)}
+.btn.alt:hover{border-color:var(--teal);transform:none}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:56px 0 40px}
+h1{font:800 clamp(2.4rem,6.5vw,4.2rem)/1.02 var(--head);margin:0 0 18px;letter-spacing:-.02em}
+.lead{color:var(--mute);max-width:34em;margin:0 0 28px}
+.stage{position:relative;height:340px}
+.floor{position:absolute;left:0;right:0;bottom:28px;height:170px;transform:perspective(420px) rotateX(62deg);
+  background:linear-gradient(var(--line) 2px,transparent 2px) 0 0/44px 44px,linear-gradient(90deg,var(--line) 2px,transparent 2px) 0 0/44px 44px;
+  -webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
+.shadow{position:absolute;left:50%;bottom:62px;width:120px;height:26px;margin-left:-60px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(5px);animation:shade 1.3s infinite}
+.bounce{position:absolute;left:50%;bottom:78px;width:110px;height:110px;margin-left:-55px;perspective:700px;animation:hop 1.3s infinite}
+.cube{position:relative;width:110px;height:110px;transform-style:preserve-3d;animation:spin 7s linear infinite}
+.cube i{position:absolute;inset:0;border:3px solid #1a1630;border-radius:6px;background:var(--sun)}
+.cube i:nth-child(1){transform:translateZ(55px)}
+.cube i:nth-child(2){transform:rotateY(180deg) translateZ(55px);background:#f2c230}
+.cube i:nth-child(3){transform:rotateY(90deg) translateZ(55px);background:#ffe27a}
+.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(55px);background:#e8b81f}
+.cube i:nth-child(5){transform:rotateX(90deg) translateZ(55px);background:#fff0b0}
+.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(55px);background:#cf9c00}
+@keyframes hop{
+  0%,100%{transform:translateY(0);animation-timing-function:cubic-bezier(.2,.6,.4,1)}
+  50%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.6,0,.8,.4)}}
+@keyframes shade{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.55);opacity:.4}}
+@keyframes spin{from{transform:rotateX(-24deg) rotateY(0)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.7rem,4vw,2.4rem)/1.1 var(--head);margin:0 0 14px;letter-spacing:-.01em}
+.sub{color:var(--mute);max-width:36em;margin:0 0 30px}
+
+/* picture slot: shows a placeholder until the image file exists */
+.pic{position:relative;overflow:hidden;background:var(--bg2);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:.9rem}
+.pic::before{content:"Add a picture"}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.games{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.game{display:flex;flex-direction:column;background:var(--bg2);border-radius:16px;overflow:hidden}
+.game .pic{aspect-ratio:16/9;border:0;border-bottom:2px dashed var(--line);border-radius:0}
+.game .body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.game h3{font:800 1.5rem var(--head);margin:0}
+.game p{margin:0;color:var(--mute)}
+.badge{align-self:flex-start;border:1px solid var(--teal);color:var(--teal);border-radius:99px;padding:3px 12px;font-size:.88rem;font-weight:600}
+.game .cta{margin-top:auto;padding-top:6px}
+.soon{border:2px dashed var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:center;color:var(--mute)}
+.soon h3{font:800 1.3rem var(--head);color:var(--ink);margin:0 0 6px}
+.soon p{margin:0}
+
+.about{background:var(--bg2)}
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:640px}
+.person .pic{width:140px;height:140px;border-radius:16px;margin-bottom:12px}
+.person h3{font:800 1.3rem var(--head);margin:0}
+.person p{margin:2px 0 0;color:var(--mute)}
+
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:760px){
+  .hero,.games{grid-template-columns:1fr}
+  .hero{padding-top:30px}
+  .stage{height:300px;order:-1}
+  nav a{margin:0 14px 0 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .bounce,.cube,.shadow{animation:none}
+  .bounce{transform:translateY(-60px)}
+  .cube{transform:rotateX(-24deg) rotateY(35deg)}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">SaSGames</a>
+    <nav aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="https://sasgames-interactive.github.io/3D-Endless-Runner/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Small games, made by two friends.</h1>
+      <p class="lead">SaSGames is an indie studio of two people making 3D mobile games for Android. Our first game is in testing now.</p>
+      <div class="cta">
+        <a class="btn" href="#games">See our game</a>
+        <a class="btn alt" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="stage" role="img" aria-label="A yellow cube bouncing on a grid floor">
+      <div class="floor"></div>
+      <div class="shadow"></div>
+      <div class="bounce"><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+
+  <section id="games">
+    <div class="wrap">
+      <h2>Our games</h2>
+      <p class="sub">One game so far, with more to come.</p>
+      <div class="games">
+        <article class="game">
+          <div class="pic"><img src="images/game.jpg" alt="Screenshot of 3D Endless Runner" onerror="this.remove()"></div>
+          <div class="body">
+            <span class="badge">In closed testing on Android</span>
+            <h3>3D Endless Runner</h3>
+            <!-- Update the name here when you pick a new one. -->
+            <p>A 3D arcade game about a bouncing square and your high score, with a shop and options to play your way.</p>
+            <div class="cta">
+              <a class="btn" href="https://sasgames-interactive.github.io/3D-Endless-Runner/">Visit the game page</a>
+              <a class="btn alt" href="https://forms.gle/kquoJ3sahUyp1qhm6">Become a tester</a>
+            </div>
+          </div>
+        </article>
+        <div class="soon">
+          <h3>More on the way</h3>
+          <p>We’re already thinking about what to build next. Follow us on Discord to see it first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>Who we are</h2>
+      <p class="sub">Two friends who like games and decided to make their own. We build, test and fix everything ourselves, so player feedback goes straight to us.</p>
+      <div class="people">
+        <!-- Replace the name and role, and add images/person1.jpg -->
+        <div class="person">
+          <div class="pic"><img src="images/person1.jpg" alt="Photo of the first developer" onerror="this.remove()"></div>
+          <h3>Nita Sebastian</h3>
+          <p>Developer</p>
+        </div>
+        <!-- Replace the name and role, and add images/person2.jpg -->
+        <div class="person">
+          <div class="pic"><img src="images/person2.jpg" alt="Photo of the second developer" onerror="this.remove()"></div>
+          <h3>Vicari Francesco</h3>
+          <p>Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Say hello</h2>
+      <p class="sub">Feedback, questions or ideas? We read everything.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:supersasgames@gmail.com">Send an email</a>
+        <a class="btn alt" href="https://discord.gg/ZDHNAJyUZC">Join the Discord</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SaSGames</span>
+    <a href="https://sasgames-interactive.github.io/3D-Endless-Runner/privacy.html">Privacy policy</a>
+  </div>
+</footer>
+
+</body>
+</html>

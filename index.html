@@ -21,11 +21,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f6f7fb; --surface:#ffffff; --ink:#14172b; --mute:#565b78;
-  --accent:#5b3df5; --accent-d:#3e25c4; --mint:#0e9f77; --line:#d9dcee;
+  --bg:#0f1120; --surface:#181b30; --ink:#eef0ff; --mute:#a4a9c8;
+  --accent:#7c62ff; --accent-d:#5136e0; --mint:#2ed3a0; --line:#2c3152;
   --head:"Sora","Trebuchet MS",system-ui,sans-serif;
   --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  box-sizing:border-box;
+  box-sizing:border-box; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
@@ -34,7 +34,7 @@ a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 
-header{position:sticky;top:0;z-index:5;background:rgba(246,247,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:rgba(15,17,32,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
 .brand{font:800 1.2rem var(--head);color:var(--ink);text-decoration:none}
 nav a{color:var(--mute);text-decoration:none;margin-left:18px;font-weight:600;font-size:.95rem}
@@ -48,7 +48,7 @@ nav a:hover{color:var(--ink)}
 .cta{display:flex;flex-wrap:wrap;gap:14px}
 
 /* picture slot: shows a placeholder until the image file exists */
-.pic{position:relative;overflow:hidden;background:#eceefa;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:.9rem}
+.pic{position:relative;overflow:hidden;background:#1d2140;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:.9rem}
 .pic::before{content:"Add a picture"}
 .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
@@ -153,13 +153,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <!-- Replace the name and role, and add images/person1.jpg -->
         <div class="person">
           <div class="pic"><img src="images/person1.jpg" alt="Photo of the first developer" onerror="this.remove()"></div>
-          <h3>Nita Sebastian</h3>
+          <h3>Your name</h3>
           <p>Developer</p>
         </div>
         <!-- Replace the name and role, and add images/person2.jpg -->
         <div class="person">
           <div class="pic"><img src="images/person2.jpg" alt="Photo of the second developer" onerror="this.remove()"></div>
-          <h3>Vicari Francesco</h3>
+          <h3>Friend’s name</h3>
           <p>Developer</p>
         </div>
       </div>
